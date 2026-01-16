@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtak7w3atcr2o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uebnx"]
+font_size = 50
+
+[node name="LevelSelect" type="CanvasLayer"]
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="."]
+offset_left = 41.0
+offset_top = 33.0
+offset_right = 241.0
+offset_bottom = 102.0
+text = "选择关卡"
+label_settings = SubResource("LabelSettings_uebnx")

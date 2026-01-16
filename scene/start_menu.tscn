@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsolqf75fhj6"]
+
+[ext_resource type="Script" uid="uid://ckwyyio52o8qu" path="res://script/start_menu.gd" id="1_e43t8"]
+[ext_resource type="Theme" uid="uid://bysjk0n4lg114" path="res://theme.tres" id="2_p6ge0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o3jxj"]
+font_size = 73
+
+[sub_resource type="LabelSettings" id="LabelSettings_0f027"]
+font_size = 51
+
+[node name="StartMenu" type="CanvasLayer"]
+script = ExtResource("1_e43t8")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="."]
+offset_left = 316.0
+offset_top = 63.0
+offset_right = 915.0
+offset_bottom = 164.0
+text = "PlantsVsZombies"
+label_settings = SubResource("LabelSettings_o3jxj")
+
+[node name="Label2" type="Label" parent="Title"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 77.0
+offset_right = 380.0
+offset_bottom = 147.0
+text = "Thunder"
+label_settings = SubResource("LabelSettings_0f027")
+
+[node name="Start" type="Button" parent="."]
+offset_left = 200.0
+offset_top = 240.0
+offset_right = 980.0
+offset_bottom = 310.0
+theme = ExtResource("2_p6ge0")
+theme_override_font_sizes/font_size = 32
+text = "游戏"
+
+[node name="Settings" type="Button" parent="."]
+offset_left = 200.0
+offset_top = 350.0
+offset_right = 980.0
+offset_bottom = 420.0
+theme = ExtResource("2_p6ge0")
+theme_override_font_sizes/font_size = 32
+text = "设置"
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 200.0
+offset_top = 460.0
+offset_right = 980.0
+offset_bottom = 530.0
+theme = ExtResource("2_p6ge0")
+theme_override_font_sizes/font_size = 32
+text = "退出"
+
+[connection signal="pressed" from="Start" to="." method="start_game"]
+[connection signal="pressed" from="Settings" to="." method="settings"]
+[connection signal="pressed" from="Exit" to="." method="exit"]
