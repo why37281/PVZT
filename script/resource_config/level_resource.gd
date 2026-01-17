@@ -20,4 +20,10 @@ class_name LevelResource
 ## 僵尸波数
 @export var zombie_waves: int
 ## 僵尸出现配置
-@export var zombie_appear: int
+@export var zombie_config: LevelZombieConfig
+
+func get_zombie_config() -> LevelZombieConfig:
+	if zombie_config:
+		return zombie_config
+	print("关卡资源获取失败")
+	return null
