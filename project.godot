@@ -12,12 +12,15 @@ config_version=5
 
 config/name="PVZT"
 run/main_scene="uid://bsolqf75fhj6"
+config/use_custom_user_dir=true
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Enums="*res://script/enums.gd"
+GameData="*res://script/game_data.gd"
+SaveSystem="*res://script/save_system.gd"
 
 [display]
 

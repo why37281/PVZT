@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkccotdnf64dw"]
+
+[ext_resource type="Script" uid="uid://dm0np0pdljw6m" path="res://script/chapter_select.gd" id="1_xsri1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qhqfc"]
+font_size = 50
+
+[node name="ChapterSelect" type="CanvasLayer"]
+script = ExtResource("1_xsri1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="."]
+offset_left = 41.0
+offset_top = 33.0
+offset_right = 241.0
+offset_bottom = 102.0
+text = "选择章节"
+label_settings = SubResource("LabelSettings_qhqfc")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="ChaptersGrid" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="Back" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -80.0
+offset_right = 113.0
+offset_bottom = -18.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "返回"
+
+[connection signal="pressed" from="Back" to="." method="on_back_pressed"]
