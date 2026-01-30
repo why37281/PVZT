@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 Enums="*res://script/enums.gd"
 GameData="*res://script/game_data.gd"
 SaveSystem="*res://script/save_system.gd"
+Path="*res://script/path.gd"
 
 [display]
 
@@ -32,6 +33,10 @@ window/stretch/mode="canvas_items"
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/copilot-advanced/plugin.cfg")
 
 [rendering]
 

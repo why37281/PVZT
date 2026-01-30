@@ -24,7 +24,7 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
+bg_color = Color(0, 0, 0, 0)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -139,13 +139,18 @@ bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
+border_width_bottom = 5
 border_color = Color(0.63529414, 0.6156863, 0.4392157, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 corner_detail = 5
 expand_margin_left = 5.0
 expand_margin_top = 5.0
 expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0, 0, 0, 0)
 
 [node name="ChapterButton" type="Button"]
 offset_right = 250.0
@@ -194,6 +199,8 @@ text = " 进度 "
 custom_minimum_size = Vector2(190, 0)
 layout_direction = 2
 layout_mode = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
@@ -206,5 +213,9 @@ layout_mode = 0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 245.0
-offset_bottom = 45.0
+offset_bottom = 295.0
+mouse_filter = 2
+mouse_behavior_recursive = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_cad7g")
+
+[connection signal="pressed" from="." to="." method="_on_button_pressed"]

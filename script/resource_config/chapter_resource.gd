@@ -14,7 +14,6 @@ class_name ChapterResource
 ## 返回值: Dictionary 包含章节进度信息的字典
 ##   - completed_levels: int 已完成的关卡数量
 ##   - total_levels: int 总关卡数量
-##   - total_stars: int 已获得的星星总数
 func update_progress():
 	# 获取本章节包含的关卡总数
 	var total_levels = levels.size()

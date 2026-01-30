@@ -1,6 +1,8 @@
 # LevelResource.gd
 extends Resource
 class_name LevelResource
+## 章节编号
+@export var chapter_id: int
 ## 关卡编号
 @export var level_id: int
 ## 关卡名称
