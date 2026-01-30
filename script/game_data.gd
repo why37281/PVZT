@@ -59,6 +59,7 @@ func load_chapters():
 	
 	# 按章节ID排序
 	chapters.sort_custom(func(a, b): return a.chapter_id < b.chapter_id)
+	
 
 func load_levels():
 	all_levels.clear()
