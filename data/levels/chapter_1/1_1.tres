@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelResource" load_steps=2 format=3 uid="uid://ogla2doauf5k"]
+
+[ext_resource type="Script" uid="uid://dgdfpnlk588ox" path="res://script/resource_config/level_resource.gd" id="1_mo6vf"]
+
+[resource]
+script = ExtResource("1_mo6vf")
+chapter_id = 1
+level_id = 1
+level_name = "22222"
+metadata/_custom_type_script = "uid://dgdfpnlk588ox"

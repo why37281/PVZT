@@ -1,4 +1,3 @@
-# GameData.gd
 extends Node
 
 var chapter_now: int
@@ -10,19 +9,41 @@ var chapters: Array[ChapterResource] = []
 ## 存储所有关卡数据 [b](key: [code inline=true]chapter_level[/code])[/b]
 var all_levels: Dictionary = {}
 
+var save_data = {}
+	#"version": 1,
+	#"chapters_finishing": {},
+	#"levels_finishing": {},
+	#"settings": {
+		#"volume_master": 1.0,
+		#"volume_music": 0.8,
+		#"volume_sfx": 1.0
+	#}
+
+var auto_settings = {}
+
 func _ready() -> void:
 	load_all_data()
+
+func apply_save_data() -> void:
+	SaveSystem.load_game_data(save_data)
+	if save_data.is_empty():
+		save_data["version"] = 1;
+		save_data["settings"] = auto_settings
+		for levels in all_levels:
+			var temp = levels.split("-")
+			# TODO
 
 func load_all_data():
 	print("📂 开始加载游戏数据...")
 	
 	load_chapters()
-	#load_levels()
+	load_levels()
 	#apply_save_data()  # 应用存档数据
 	
 	print("✅ 数据加载完成")
 	print("   章节数:", chapters.size())
 	print("   关卡数:", all_levels.size())
+	print(all_levels, chapters)
 	
 func load_chapters():
 	chapters.clear()

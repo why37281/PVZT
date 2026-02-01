@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ChapterResource" load_steps=4 format=3 uid="uid://vu0mgu3gn77x"]
+
+[ext_resource type="Script" uid="uid://dgdfpnlk588ox" path="res://script/resource_config/level_resource.gd" id="1_jh0c5"]
+[ext_resource type="Resource" uid="uid://ogla2doauf5k" path="res://data/levels/chapter_1/1_1.tres" id="2_ihlhd"]
+[ext_resource type="Script" uid="uid://cb55ch3wmyxpg" path="res://script/resource_config/chapter_resource.gd" id="2_j26qf"]
+
+[resource]
+script = ExtResource("2_j26qf")
+chapter_id = 1
+chapter_name = "111"
+levels = Array[ExtResource("1_jh0c5")]([ExtResource("2_ihlhd")])
+metadata/_custom_type_script = "uid://cb55ch3wmyxpg"

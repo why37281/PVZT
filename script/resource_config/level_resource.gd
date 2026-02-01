@@ -13,19 +13,9 @@ class_name LevelResource
 @export var scene_path: PackedScene
 ## 略缩图
 @export var preview_image: Texture2D
-## 解锁状态
-@export var unlocked: bool = false
-## 完成状态
-@export var completed: bool = false
 ## 初始阳光
 @export var sun_start: int = 50
 ## 僵尸波数
 @export var zombie_waves: int
 ## 僵尸出现配置
 @export var zombie_config: LevelZombieConfig
-
-func get_zombie_config() -> LevelZombieConfig:
-	if zombie_config:
-		return zombie_config
-	print("关卡资源获取失败")
-	return null
