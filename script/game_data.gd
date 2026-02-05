@@ -54,12 +54,7 @@ func load_all_data():
 	print("   关卡数:", all_levels.size())
 	print(all_levels, chapters)
 
-func is_level_unlocked(level_name:String) -> bool:
-	var temp = level_name.split("_")
-	var chapter_id = temp[0].to_int()
-	var level_id = temp[1].to_int()
-	
-	return false
+
 
 func load_chapters():
 	chapters.clear()
