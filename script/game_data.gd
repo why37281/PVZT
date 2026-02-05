@@ -25,23 +25,25 @@ var auto_settings = {
 
 func _ready() -> void:
 	load_all_data()
+	apply_save_data()
 
 func apply_save_data() -> void:
 	SaveSystem.load_game_data(save_data)
 	if save_data.is_empty():
 		save_data["version"] = 1;
 		save_data["settings"] = auto_settings
+		save_data["levels_finishing"] = {}
+		save_data["chapters_finishing"] = {}
 		for level in all_levels:
-			save_data["levels_finishing"][level.get_chapter_level_id()] = false
-			save_data["chapters_finishing"][level.get_chapter_level_id()] = false
+			save_data["levels_finishing"][level] = false
+			save_data["chapters_finishing"][all_levels[level].chapter_id] = false
 	if save_data["version"] > 1:
 		save_data["version"] += 1
 	for chapter in chapters:
 		save_data["chapters_finishing"][chapter.chapter_id] = \
 		save_data["chapters_finishing"].get(chapter.chapter_id, false)
 	for level in all_levels:
-		save_data["levels_finishing"][level.get_chapter_level_id()] = \
-		save_data["levels_finishing"].get(level.get_chapter_level_id(), false)
+		save_data["levels_finishing"][level] = save_data["levels_finishing"].get(level, false)
 func load_all_data():
 	print("📂 开始加载游戏数据...")
 	

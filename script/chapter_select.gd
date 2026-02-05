@@ -10,7 +10,7 @@ func on_back_pressed():
 	get_tree().change_scene_to_file("res://scene/start_menu.tscn")
 
 func create_chapter_buttons():
-	var grid = $ChaptersScroll/ChaptersGrid
+	var grid = $ScrollContainer/ChaptersGrid
 
 	for child in grid.get_children():
 		child.queue_free()
@@ -25,7 +25,7 @@ func create_chapter_buttons():
 		button.chapter_name = chapter.chapter_name
 		
 		# 如果章节未解锁，禁用按钮
-		if not chapter.unlocked:
+		if not GameData.save_data["chapters_finishing"].get(str(chapter.chapter_id), false):
 			button.disabled = true
 		
 		# 添加到网格
