@@ -19,3 +19,6 @@ class_name LevelResource
 @export var zombie_waves: int
 ## 僵尸出现配置
 @export var zombie_config: LevelZombieConfig
+
+func get_chapter_level_id() -> String:
+	return str(chapter_id) + "_" + str(level_id)
