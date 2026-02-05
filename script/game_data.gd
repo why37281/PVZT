@@ -19,7 +19,9 @@ var save_data = {}
 		#"volume_sfx": 1.0
 	#}
 
-var auto_settings = {}
+var auto_settings = {
+	
+}
 
 func _ready() -> void:
 	load_all_data()
@@ -29,10 +31,17 @@ func apply_save_data() -> void:
 	if save_data.is_empty():
 		save_data["version"] = 1;
 		save_data["settings"] = auto_settings
-		for levels in all_levels:
-			var temp = levels.split("-")
-			# TODO
-
+		for level in all_levels:
+			save_data["levels_finishing"][level.get_chapter_level_id()] = false
+			save_data["chapters_finishing"][level.get_chapter_level_id()] = false
+	if save_data["version"] > 1:
+		save_data["version"] += 1
+	for chapter in chapters:
+		save_data["chapters_finishing"][chapter.chapter_id] = \
+		save_data["chapters_finishing"].get(chapter.chapter_id, false)
+	for level in all_levels:
+		save_data["levels_finishing"][level.get_chapter_level_id()] = \
+		save_data["levels_finishing"].get(level.get_chapter_level_id(), false)
 func load_all_data():
 	print("📂 开始加载游戏数据...")
 	
@@ -44,7 +53,14 @@ func load_all_data():
 	print("   章节数:", chapters.size())
 	print("   关卡数:", all_levels.size())
 	print(all_levels, chapters)
+
+func is_level_unlocked(level_name:String) -> bool:
+	var temp = level_name.split("_")
+	var chapter_id = temp[0].to_int()
+	var level_id = temp[1].to_int()
 	
+	return false
+
 func load_chapters():
 	chapters.clear()
 	

@@ -11,6 +11,9 @@ func on_back_pressed():
 
 func create_chapter_buttons():
 	var grid = $ChaptersScroll/ChaptersGrid
+
+	for child in grid.get_children():
+		child.queue_free()
 	
 	# 从GameData获取章节数据
 	for chapter in GameData.chapters:
@@ -30,4 +33,4 @@ func create_chapter_buttons():
 
 func _on_back_pressed():
 	# 返回开始菜单
-	get_tree().change_scene_to_file("res://scenes/ui/StartMenu.tscn")
+	get_tree().change_scene_to_file("res://scene/start_menu.tscn")
