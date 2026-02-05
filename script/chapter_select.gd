@@ -23,6 +23,7 @@ func create_chapter_buttons():
 		# 设置按钮属性
 		button.chapter_id = chapter.chapter_id
 		button.chapter_name = chapter.chapter_name
+		button.texture = chapter.chapter_icon
 		
 		# 如果章节未解锁，禁用按钮
 		if not GameData.save_data["chapters_finishing"].get(str(chapter.chapter_id), false):

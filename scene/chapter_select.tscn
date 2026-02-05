@@ -27,12 +27,14 @@ label_settings = SubResource("LabelSettings_qhqfc")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 123.0
+offset_top = 120.0
+offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
 
 [node name="ChaptersGrid" type="GridContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(1280, 500)
 layout_mode = 2
 columns = 4
 

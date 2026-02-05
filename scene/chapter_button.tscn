@@ -153,6 +153,7 @@ expand_margin_bottom = 5.0
 shadow_color = Color(0, 0, 0, 0)
 
 [node name="ChapterButton" type="Button"]
+custom_minimum_size = Vector2(250, 300)
 offset_right = 250.0
 offset_bottom = 300.0
 theme = ExtResource("1_8mq5n")
