@@ -1,7 +1,7 @@
 extends Node
 
 enum ZombieType {
-	NORMAL,      # 普通僵尸
+	NORMAL = 1,      # 普通僵尸
 	#CONEHEAD,    # 路障僵尸
 	#BUCKETHEAD,  # 铁桶僵尸
 	#NEWSPAPER,   # 读报僵尸

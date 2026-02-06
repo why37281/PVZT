@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var grid = $GridContainer
+@onready var grid = $ScrollContainer/LevelsGrid
 
 func _ready():
 	create_level_buttons()
@@ -24,9 +24,11 @@ func create_level_buttons():
 	levels_to_show.sort_custom(func(a, b): return a.level_id < b.level_id)
 	
 	for level in levels_to_show:
-		var btn = Button.new()
-		btn.text = "关卡 %d-%d\n%s" % [level.chapter_id, level.level_id, level.level_name]
-		btn.custom_minimum_size = Vector2(150, 100)
+		var btn = preload("res://scene/chapter_button.tscn").instantiate()
+		btn.is_chapter = false
+		btn.chapter_name = level.level_name
+		btn.texture = level.preview_image
+		btn.disabled = not GameData.save_data["levels_unlocked"]["%s_%s" % [level.chapter_id, level.level_id]]
 		btn.pressed.connect(_on_level_selected.bind(level))
 		grid.add_child(btn)
 
