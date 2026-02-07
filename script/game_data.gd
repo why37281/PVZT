@@ -32,19 +32,25 @@ var auto_settings = {
 	
 }
 
+func update_chapter_level_status():
+	update_chapters_finishing()
+	update_chapters_unlocked()
+
+func update_chapters_unlocked():
+	var index = 0
+	for chapter in chapters:
+		if index != 0:
+			if save_data["chapters_finishing"][chapters[index - 1].chapter_id]:
+				save_data["chapters_unlocked"][chapter.chapter_id] = true
+	index += 1
+
 # 更新所有章节的完成状态
 # 遍历所有章节，如果一个章节下的所有关卡都已完成，则将该章节标记为完成。
-func update_chapter_finishing():
+func update_chapters_finishing():
 	for chapter in chapters:
 		# 先假设章节已完成
-		save_data["chapters_finishing"][chapter.chapter_id] = true
-		# 检查该章节下的所有关卡
-		for level in all_levels:
-			if level.split()[0] == str(chapter.chapter_id) \
-			and not save_data["levels_finishing"][level]:
-				# 如果发现任何一个关卡未完成，则将章节状态设为未完成并跳出循环
-				save_data["chapters_finishing"][chapter.chapter_id] = false
-				break
+		save_data["chapters_finishing"][chapter.chapter_id] = \
+		check_chapter_finish(chapter.chapter_id)
 
 # 检查指定章节是否已经完成
 # - chapter: 要检查的章节ID
@@ -99,11 +105,13 @@ func apply_save_data() -> void:
 		save_data["chapters_unlocked"].get(chapter.chapter_id, false)
 	# 默认解锁ID最小的章节
 	save_data["chapters_unlocked"][min_chapter_id] = true
-	
+	var min_level_id = 10^8
 	# 确保存档中包含所有已加载的关卡
 	for level in all_levels:
 		save_data["levels_unlocked"][level] = save_data["levels_unlocked"].get(level, false)
-
+		if level.split()[0] == str(min_chapter_id):
+			min_level_id = min(min_level_id, int(level.split()[1]))
+	save_data["levels_unlocked"]["%d_%d" % [min_level_id, min_chapter_id]] = true
 # 加载所有游戏核心数据（章节和关卡）
 func load_all_data():
 	print("📂 开始加载游戏数据...")
