@@ -48,7 +48,7 @@ func update_chapters_unlocked():
 # 遍历所有章节，如果一个章节下的所有关卡都已完成，则将该章节标记为完成。
 func update_chapters_finishing():
 	for chapter in chapters:
-		# 先假设章节已完成
+		
 		save_data["chapters_finishing"][chapter.chapter_id] = \
 		check_chapter_finish(chapter.chapter_id)
 
@@ -58,7 +58,7 @@ func update_chapters_finishing():
 func check_chapter_finish(chapter: int) -> bool:
 	var chapter_name
 	for level in all_levels:
-		chapter_name = level.split("-")[0]
+		chapter_name = level.split("_")[0]
 		# 如果关卡属于该章节，并且尚未完成
 		if int(chapter_name) == chapter and \
 		not save_data["levels_finishing"].get(level, false):
@@ -109,8 +109,8 @@ func apply_save_data() -> void:
 	# 确保存档中包含所有已加载的关卡
 	for level in all_levels:
 		save_data["levels_unlocked"][level] = save_data["levels_unlocked"].get(level, false)
-		if level.split()[0] == str(min_chapter_id):
-			min_level_id = min(min_level_id, int(level.split()[1]))
+		if level.split("_")[0] == str(min_chapter_id):
+			min_level_id = min(min_level_id, int(level.split("_")[1]))
 	save_data["levels_unlocked"]["%d_%d" % [min_level_id, min_chapter_id]] = true
 # 加载所有游戏核心数据（章节和关卡）
 func load_all_data():
@@ -213,4 +213,3 @@ func load_levels():
 		folder_name = dir.get_next()
 	
 	print("   已加载 %d 个关卡" % loaded_count)
-

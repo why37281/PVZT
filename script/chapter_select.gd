@@ -27,9 +27,7 @@ func create_chapter_buttons():
 		button.texture = chapter.chapter_icon
 		
 		# 检查章节是否解锁, 如果未解锁, 则禁用按钮
-		# 注意: GameData的存档数据使用字符串ID作为键, 以保证类型统一
-		var chapter_id_str = str(chapter.chapter_id)
-		if not GameData.save_data["chapters_unlocked"].get(chapter_id_str, false):
+		if not GameData.save_data["chapters_unlocked"].get(chapter.chapter_id, false):
 			button.disabled = true
 		
 		# 将创建的按钮添加到网格容器中
