@@ -1,29 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://dygiuy7hwb7b6"]
-
-[ext_resource type="Texture2D" uid="uid://dfhgo65wfd8od" path="res://images/zombies/normal/stand/1.png" id="1_jeayq"]
-[ext_resource type="Texture2D" uid="uid://deyps1jfxuboh" path="res://images/zombies/normal/stand/2.png" id="2_tet0w"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cq6p0"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_jeayq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_tet0w")
-}],
-"loop": true,
-"name": &"stand",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
+[gd_scene format=3 uid="uid://dygiuy7hwb7b6"]
 
 [node name="Zombie" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_cq6p0")
-animation = &"walk"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
